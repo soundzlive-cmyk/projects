@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Service | Gervin Tires & Autocenter | Brockton, MA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:      #0084e0;
+      --blue2:     #0066b8;
+      --blue3:     #004da8;
+      --dark:      #07090d;
+      --dark2:     #0e1520;
+      --white:     #ffffff;
+      --off-white: #f4f7fb;
+      --text:      #0d1117;
+      --text2:     #3a4453;
+      --muted:     #6b7a90;
+      --line:      rgba(0,0,0,.1);
+      --line-lt:   rgba(255,255,255,.15);
+      --r:         7px;
+      --ease:      cubic-bezier(.22,.61,.36,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      color: var(--text);
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1440px, calc(100% - 48px)); margin-inline: auto; }
+
+    /* ── TOPBAR ──────────────────────────────────────────────────────── */
+    .topbar {
+      background: var(--blue3);
+      border-bottom: 1px solid rgba(0,0,0,.15);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+    }
+    .topbar .wrap {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .topbar-item { display: flex; align-items: center; gap: 7px; }
+    .topbar-item svg { flex-shrink: 0; }
+
+    /* ── HEADER ──────────────────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,9,13,.97);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 16px rgba(0,0,0,.4);
+    }
+    .nav-inner {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .logo { width: 230px; flex-shrink: 0; }
+    .nav-menu { display: flex; list-style: none; gap: 6px; }
+    .nav-menu a {
+      display: block;
+      padding: 7px 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      border-radius: 5px;
+      color: var(--white);
+      transition: background .2s var(--ease), color .2s;
+    }
+    .nav-menu a:hover, .nav-menu a.active { background: rgba(255,255,255,.1); color: #ffd700; }
+    .nav-icons { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .nav-icons button {
+      background: none;
+      border: none;
+      color: #ffd700;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      transition: background .2s, color .2s;
+    }
+    .nav-icons button:hover { background: rgba(255,255,255,.1); color: #ffe84d; }
+
+    /* ── PAGE HERO ───────────────────────────────────────────────────── */
+    .page-hero {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1920&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 40%;
+    }
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        rgba(5,7,11,.97) 0%,
+        rgba(5,7,11,.88) 40%,
+        rgba(5,7,11,.6) 70%,
+        rgba(5,7,11,.25) 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 0;
+    }
+    .eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(44px, 6vw, 74px);
+      font-weight: 900;
+      font-style: italic;
+      line-height: .92;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+      text-shadow: 0 8px 28px rgba(0,0,0,.6);
+    }
+    .page-hero h1 .hl { color: var(--blue); }
+    .page-hero p {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(255,255,255,.78);
+      max-width: 500px;
+      line-height: 1.55;
+    }
+
+    /* ── BREADCRUMB ──────────────────────────────────────────────────── */
+    .breadcrumb-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .breadcrumb-bar a { color: var(--blue); }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-sep { margin: 0 8px; }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────────────────────── */
+    .schedule-section { padding: 56px 0 80px; }
+
+    .schedule-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ── FORM CARD ───────────────────────────────────────────────────── */
+    .form-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,.09);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      overflow: hidden;
+    }
+
+    .form-card-header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      padding: 28px 32px 24px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .form-card-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .form-card-header p {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+    }
+
+    .form-body { padding: 32px; }
+
+    /* ── FORM SECTIONS ───────────────────────────────────────────────── */
+    .form-section { margin-bottom: 36px; }
+
+    .form-section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0,132,224,.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text2);
+      letter-spacing: .02em;
+    }
+
+    .form-group label .req { color: #e03030; margin-left: 2px; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid rgba(0,0,0,.14);
+      border-radius: 7px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color .2s var(--ease), box-shadow .2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,132,224,.12);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-group select { cursor: pointer; }
+
+    /* ── SERVICE CHECKBOXES ──────────────────────────────────────────── */
+    .services-grid-check {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 14px;
+      border: 1.5px solid rgba(0,0,0,.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      user-select: none;
+    }
+
+    .check-item:hover {
+      border-color: var(--blue);
+      background: rgba(0,132,224,.04);
+    }
+
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border: 2px solid rgba(0,0,0,.25);
+      border-radius: 4px;
+      background: var(--white);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      display: grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .check-item input[type="checkbox"]:checked {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .check-item input[type="checkbox"]:checked::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translate(-1px, -1px);
+      display: block;
+    }
+
+    .check-item:has(input:checked) {
+      border-color: var(--blue);
+      background: rgba(0,132,224,.06);
+      box-shadow: 0 0 0 1px rgba(0,132,224,.2);
+    }
+
+    .check-label {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .check-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--text);
+    }
+
+    .check-badge {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .check-item:has(input:checked) .check-icon { color: var(--blue); }
+
+    /* ── PREFERRED DATE/TIME ─────────────────────────────────────────── */
+    .datetime-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── SUBMIT BUTTON ───────────────────────────────────────────────── */
+    .btn-submit {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 28px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background .2s var(--ease), transform .15s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover { background: var(--blue2); transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+
+    .form-note {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .form-note a { color: var(--blue); }
+
+    /* ── SUCCESS STATE ───────────────────────────────────────────────── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+    }
+
+    .success-msg .check-circle {
+      width: 72px;
+      height: 72px;
+      background: rgba(0,180,80,.12);
+      border: 2px solid #00b450;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      color: #00b450;
+    }
+
+    .success-msg h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .success-msg p { color: var(--text2); font-size: 15px; line-height: 1.6; max-width: 360px; margin: 0 auto; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────────────────── */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,.09);
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+
+    .sidebar-card-header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      padding: 18px 22px 16px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .sidebar-card-header h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .sidebar-card-body { padding: 20px 22px; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: var(--text2);
+    }
+
+    .contact-item:last-child { margin-bottom: 0; }
+
+    .contact-item .ci-icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: rgba(0,132,224,.1);
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13.5px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--text2);
+    }
+
+    .hours-row:last-child { border-bottom: 0; }
+    .hours-row .day { font-weight: 600; color: var(--text); }
+    .hours-row .closed { color: #c0392b; font-weight: 600; }
+
+    .map-thumb {
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 160px;
+      background: url('https://maps.googleapis.com/maps/api/staticmap?center=1181+Main+St,Brockton,MA+02301&zoom=15&size=340x160&markers=color:blue%7C1181+Main+St,Brockton,MA+02301&key=DEMO') center/cover no-repeat,
+                  linear-gradient(135deg, #c8d6e5, #8395a7);
+      margin-bottom: 14px;
+    }
+
+    .address-text {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    .btn-directions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 42px;
+      margin-top: 14px;
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+      border-radius: 7px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+
+    .btn-directions:hover { background: var(--blue); color: var(--white); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      background: #0d1117;
+      border-top: 3px solid var(--blue);
+      padding: 56px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.3fr 1.2fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-logo { width: 200px; margin-bottom: 14px; }
+
+    .footer-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li + li { margin-top: 10px; }
+    .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,.7); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item svg { color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+
+    .social-row { display: flex; gap: 10px; margin-top: 4px; }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.22);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,.65);
+      transition: border-color .2s, color .2s;
+    }
+
+    .social-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+    .copyright {
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+    }
+
+    .copyright-links { display: flex; gap: 24px; }
+    .copyright-links a { color: rgba(255,255,255,.35); transition: color .2s; }
+    .copyright-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+    @media (max-width: 1000px) {
+      .schedule-layout { grid-template-columns: 1fr; }
+      .sidebar { display: grid; grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 32px); }
+      .topbar .wrap { justify-content: center; flex-wrap: wrap; padding: 8px 0; gap: 8px; }
+      .topbar-item:nth-child(2) { display: none; }
+      .nav-menu { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .datetime-row { grid-template-columns: 1fr; }
+      .services-grid-check { grid-template-columns: 1fr; }
+      .sidebar { grid-template-columns: 1fr; }
+      .form-body { padding: 22px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <span class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Family Owned. Quality Driven.
+      </span>
+      <span class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Fast Shipping Across The U.S.
+      </span>
+      <span class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.95-1.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (508) 510-6153
+      </span>
+      <span class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Fri 8am–6pm · Sat 8am–1pm
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav-inner">
+      <a href="index.html">
+        <img src="img/gervin-logo.png" alt="Gervin Tires & Autocenter" class="logo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-size:26px;color:#fff;letter-spacing:.05em;">GERVIN TIRE</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><li><a href="tires.html">Tires</a></li>
+          
+          <li><a href="services.html">Automotive Repair</a></li>
+          <li><a href="resources.html">Knowledge Center</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="schedule.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons">
+        <a href="#" aria-label="Facebook" style="color:#ffd700;padding:8px;border-radius:6px;display:grid;place-items:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" style="color:#ffd700;padding:8px;border-radius:6px;display:grid;place-items:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-overlay"></div>
+      <div class="wrap page-hero-content">
+        <div class="eyebrow">Brockton, MA Tire & Auto Service</div>
+        <h1>Schedule <span class="hl">Your</span><br>Service</h1>
+        <p>Fill out the form below and our team will confirm your appointment within one business day.</p>
+      </div>
+    </section>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+      <div class="wrap">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="services.html">Automotive Services</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Schedule Service</span>
+      </div>
+    </div>
+
+    <!-- SCHEDULE SECTION -->
+    <section class="schedule-section">
+      <div class="wrap">
+        <div class="schedule-layout">
+
+          <!-- FORM -->
+          <div class="form-card">
+            <div class="form-card-header">
+              <h2>Book an Appointment</h2>
+              <p>All fields marked with <span style="color:#ff8080;">*</span> are required</p>
+            </div>
+
+            <div class="form-body">
+              <!-- Formspree: replace YOUR_FORM_ID with your actual Formspree form ID -->
+              <form id="scheduleForm" action="https://formspree.io/f/xrejwelw" method="POST" novalidate>
+
+                <!-- Hidden fields for Formspree config -->
+                <input type="hidden" name="_subject" value="New Service Appointment Request — Gervin Tire">
+                <input type="hidden" name="_replyto" value="">
+
+                <!-- ── YOUR INFORMATION ── -->
+                <div class="form-section">
+                  <div class="form-section-title">Your Information</div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="fname">First Name <span class="req">*</span></label>
+                      <input type="text" id="fname" name="first_name" required placeholder="Jane" autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="lname">Last Name <span class="req">*</span></label>
+                      <input type="text" id="lname" name="last_name" required placeholder="Smith" autocomplete="family-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone Number <span class="req">*</span></label>
+                      <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email Address <span class="req">*</span></label>
+                      <input type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── VEHICLE INFORMATION ── -->
+                <div class="form-section">
+                  <div class="form-section-title">Vehicle Information</div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="year">Year <span class="req">*</span></label>
+                      <select id="year" name="vehicle_year" required>
+                        <option value="" disabled selected>Select year</option>
+                        <script>
+                          const yr = document.currentScript;
+                          for (let y = new Date().getFullYear() + 1; y >= 1990; y--) {
+                            yr.insertAdjacentHTML('beforebegin', `<option value="${y}">${y}</option>`);
+                          }
+                        </script>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="make">Make <span class="req">*</span></label>
+                      <input type="text" id="make" name="vehicle_make" required placeholder="Toyota" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label for="model">Model <span class="req">*</span></label>
+                      <input type="text" id="model" name="vehicle_model" required placeholder="Camry" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label for="trim">Trim / Engine</label>
+                      <input type="text" id="trim" name="vehicle_trim" placeholder="LE 2.5L" autocomplete="off">
+                    </div>
+                    <div class="form-group full">
+                      <label for="mileage">Approximate Mileage</label>
+                      <input type="text" id="mileage" name="vehicle_mileage" placeholder="e.g. 42,000" autocomplete="off">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── SERVICES REQUESTED ── -->
+                <div class="form-section">
+                  <div class="form-section-title">Services Requested <span style="color:#e03030;font-size:11px;margin-left:4px;">Select at least one</span></div>
+                  <div class="services-grid-check">
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Oil Change">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Oil Change</span>
+                        <span class="check-badge">Routine Maintenance</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Brake Service & Repair">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Brake Service &amp; Repair</span>
+                        <span class="check-badge">Safety Critical</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Wheel Alignment">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Wheel Alignment</span>
+                        <span class="check-badge">Handling &amp; Tire Life</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Tire Rotation">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Tire Rotation</span>
+                        <span class="check-badge">Extend Tire Life</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Tire Repair">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Tire Repair</span>
+                        <span class="check-badge">Damage &amp; Wear</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Battery Replacement">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2" ry="2"/><line x1="7" y1="6" x2="7" y2="4"/><line x1="17" y1="6" x2="17" y2="4"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Battery Replacement</span>
+                        <span class="check-badge">Electrical System</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Seasonal Changeover">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Seasonal Changeover</span>
+                        <span class="check-badge">Winter / Summer</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Shocks & Struts Service">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Shocks &amp; Struts</span>
+                        <span class="check-badge">Ride &amp; Stability</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Courtesy Inspection">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Courtesy Inspection</span>
+                        <span class="check-badge">Tire &amp; Maintenance</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="A/C Service & Repair">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 6l10 6-10 6M22 6L12 12l10 6"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">A/C Service &amp; Repair</span>
+                        <span class="check-badge">Climate Control</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Engine Diagnostic">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Engine Diagnostic</span>
+                        <span class="check-badge">Check Engine Light</span>
+                      </span>
+                    </label>
+
+                    <label class="check-item">
+                      <input type="checkbox" name="services" value="Wheel Balancing">
+                      <span class="check-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                      </span>
+                      <span class="check-label">
+                        <span class="check-name">Wheel Balancing</span>
+                        <span class="check-badge">Vibration &amp; Wear</span>
+                      </span>
+                    </label>
+
+                  </div>
+                </div>
+
+                <!-- ── PREFERRED DATE & TIME ── -->
+                <div class="form-section">
+                  <div class="form-section-title">Preferred Date &amp; Time</div>
+                  <div class="datetime-row">
+                    <div class="form-group">
+                      <label for="prefDate">Preferred Date <span class="req">*</span></label>
+                      <input type="date" id="prefDate" name="preferred_date" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="prefTime">Preferred Time <span class="req">*</span></label>
+                      <select id="prefTime" name="preferred_time" required>
+                        <option value="" disabled selected>Select a time</option>
+                        <option>8:00 AM</option>
+                        <option>8:30 AM</option>
+                        <option>9:00 AM</option>
+                        <option>9:30 AM</option>
+                        <option>10:00 AM</option>
+                        <option>10:30 AM</option>
+                        <option>11:00 AM</option>
+                        <option>11:30 AM</option>
+                        <option>12:00 PM</option>
+                        <option>12:30 PM</option>
+                        <option>1:00 PM</option>
+                        <option>1:30 PM</option>
+                        <option>2:00 PM</option>
+                        <option>2:30 PM</option>
+                        <option>3:00 PM</option>
+                        <option>3:30 PM</option>
+                        <option>4:00 PM</option>
+                        <option>4:30 PM</option>
+                        <option>5:00 PM</option>
+                        <option>5:30 PM</option>
+                      </select>
+                    </div>
+                    <div class="form-group full">
+                      <label for="altDate">Alternate Date (optional)</label>
+                      <input type="date" id="altDate" name="alternate_date">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ── ADDITIONAL NOTES ── -->
+                <div class="form-section" style="margin-bottom:24px;">
+                  <div class="form-section-title">Additional Notes</div>
+                  <div class="form-group">
+                    <label for="notes">Describe any concerns or symptoms</label>
+                    <textarea id="notes" name="notes" placeholder="e.g. Grinding noise when braking, pulling to the right, check engine light on…"></textarea>
+                  </div>
+                  <div class="form-group" style="margin-top:16px;">
+                    <label for="howHeard">How did you hear about us?</label>
+                    <select id="howHeard" name="how_heard">
+                      <option value="" disabled selected>Select an option</option>
+                      <option>Google Search</option>
+                      <option>Google Maps</option>
+                      <option>Facebook</option>
+                      <option>Instagram</option>
+                      <option>Friend or Family Referral</option>
+                      <option>Returning Customer</option>
+                      <option>Drive By</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Submit Appointment Request
+                </button>
+                <p class="form-note">We'll confirm your appointment by phone or email within one business day. By submitting you agree to our <a href="#">Privacy Policy</a>.</p>
+
+              </form>
+
+              <!-- Success message shown after Formspree redirect (or JS intercept) -->
+              <div class="success-msg" id="successMsg">
+                <div class="check-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Request Received!</h3>
+                <p>Thanks! We'll review your appointment request and follow up within one business day to confirm your time slot.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+
+            <!-- Contact Info -->
+            <div class="sidebar-card">
+              <div class="sidebar-card-header">
+                <h3>Contact Us Directly</h3>
+              </div>
+              <div class="sidebar-card-body">
+                <div class="contact-item">
+                  <span class="ci-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.95-1.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </span>
+                  <div>
+                    <strong>Phone</strong>
+                    <a href="tel:5085106153" style="color:var(--blue)">(508) 510-6153</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="ci-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </span>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:info@gervintire.com" style="color:var(--blue)">info@gervintire.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="sidebar-card">
+              <div class="sidebar-card-header">
+                <h3>Business Hours</h3>
+              </div>
+              <div class="sidebar-card-body">
+                <div class="hours-row"><span class="day">Monday</span><span>8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Tuesday</span><span>8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Wednesday</span><span>8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Thursday</span><span>8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Friday</span><span>8:00 AM – 6:00 PM</span></div>
+                <div class="hours-row"><span class="day">Saturday</span><span>8:00 AM – 1:00 PM</span></div>
+                <div class="hours-row"><span class="day">Sunday</span><span class="closed">Closed</span></div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="sidebar-card">
+              <div class="sidebar-card-header">
+                <h3>Our Location</h3>
+              </div>
+              <div class="sidebar-card-body">
+                <div class="map-thumb" aria-label="Map to Gervin Tire at 1181 Main Street, Brockton MA"></div>
+                <p class="address-text">
+                  <strong style="color:var(--text)">Gervin Tires &amp; Autocenter</strong><br>
+                  1181 Main Street<br>
+                  Brockton, MA 02301
+                </p>
+                <a href="https://maps.google.com/?q=1181+Main+Street+Brockton+MA+02301" target="_blank" rel="noopener" class="btn-directions">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  Get Directions
+                </a>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <img src="img/gervin-logo.png" alt="Gervin Tires & Autocenter" class="footer-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span style="display:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-size:24px;color:#fff;letter-spacing:.05em;">GERVIN TIRE</span>
+          <p class="footer-desc">Family owned. Quality driven. Thank you for trusting us with your ride.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li><li><a href="tires.html">Tires</a></li>
+            
+            <li><a href="services.html">Automotive Repair</a></li>
+            <li><a href="resources.html">Knowledge Center</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="schedule.html">Schedule Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.95-1.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:5085106153" style="color:inherit">(508) 510-6153</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@gervintire.com" style="color:inherit">info@gervintire.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Fri: 8am–6pm EST<br>Sat: 8am–1pm EST
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Our Location</h4>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            1181 Main Street<br>Brockton, MA 02301
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Gervin Tire. All rights reserved.</span>
+        <div class="copyright-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Set minimum date to today */
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('prefDate').min = today;
+
+    /* Auto-select service from ?service= URL param */
+    const params = new URLSearchParams(window.location.search);
+    const preselect = params.get('service');
+    if (preselect) {
+      const checkboxes = document.querySelectorAll('input[name="services"]');
+      checkboxes.forEach(cb => {
+        if (cb.value === preselect) {
+          cb.checked = true;
+          const card = cb.closest('.check-item');
+          if (card) {
+            card.style.borderColor = 'var(--blue)';
+            card.style.background = 'rgba(0,132,224,.08)';
+            card.style.boxShadow = '0 0 0 2px rgba(0,132,224,.3)';
+            setTimeout(() => {
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 120);
+          }
+        }
+      });
+    }
+    document.getElementById('altDate').min = today;
+
+    /* Optional: AJAX submit for inline success message (works alongside Formspree) */
+    const form = document.getElementById('scheduleForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      /* Validate at least one service is checked */
+      const checked = form.querySelectorAll('input[name="services"]:checked');
+      if (checked.length === 0) {
+        alert('Please select at least one service before submitting.');
+        return;
+      }
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+          window.scrollTo({ top: document.querySelector('.form-card').offsetTop - 100, behavior: 'smooth' });
+        } else {
+          alert('There was a problem submitting your request. Please call us at (508) 510-6153.');
+        }
+      } catch {
+        alert('Network error. Please call us at (508) 510-6153 or try again later.');
+      }
+    });
+  </script>
+
+</body>
+</html>

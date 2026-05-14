@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tire Feathering: Causes &amp; Solutions | Gervin Tires &amp; Autocenter | Brockton, MA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#0084e0;--blue2:#0066b8;--blue3:#004da8;--dark:#07090d;--dark2:#0e1520;--white:#fff;--off-white:#f4f7fb;--text:#0d1117;--text2:#3a4453;--muted:#6b7a90;--line:rgba(0,0,0,.1);--r:8px;--ease:cubic-bezier(.22,.61,.36,1); }
+    html { scroll-behavior: smooth; }
+    body { background:var(--off-white);color:var(--text);font-family:'Barlow',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased; }
+    a { text-decoration:none;color:inherit; }
+    img { display:block;max-width:100%; }
+    .wrap { width:min(1440px,calc(100% - 48px));margin-inline:auto; }
+    .topbar { background:var(--blue3);border-bottom:1px solid rgba(0,0,0,.15);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9); }
+    .topbar .wrap { min-height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px; }
+    .topbar-item { display:flex;align-items:center;gap:7px; }
+    header { position:sticky;top:0;z-index:100;background:rgba(7,9,13,.97);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);box-shadow:0 2px 16px rgba(0,0,0,.4); }
+    .nav-inner { min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:28px; }
+    .logo { width:230px;flex-shrink:0; }
+    .nav-menu { display:flex;list-style:none;gap:6px; }
+    .nav-menu a { display:block;padding:7px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.09em;text-transform:uppercase;border-radius:5px;color:var(--white);transition:background .2s,color .2s; }
+    .nav-menu a:hover,.nav-menu a.active { background:rgba(255,255,255,.1);color:#ffd700; }
+    .nav-icons { display:flex;align-items:center;gap:6px;flex-shrink:0; }
+    .nav-icons button { background:none;border:none;color:#ffd700;cursor:pointer;padding:8px;border-radius:6px;display:grid;place-items:center;transition:background .2s,color .2s; }
+    .nav-icons button:hover { background:rgba(255,255,255,.1); }
+    .article-hero { position:relative;min-height:400px;display:flex;align-items:flex-end;overflow:hidden; }
+    .article-hero-bg { position:absolute;inset:0;background-size:cover;background-position:center; }
+    .article-hero-overlay { position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,7,11,.97) 0%,rgba(5,7,11,.75) 35%,rgba(5,7,11,.35) 70%,rgba(5,7,11,.1) 100%); }
+    .article-hero-content { position:relative;z-index:1;padding:52px 0 44px; }
+    .cat-label { display:inline-block;background:var(--blue);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:16px; }
+    .article-hero h1 { font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:900;font-style:italic;line-height:.92;text-transform:uppercase;color:#fff;margin-bottom:16px;text-shadow:0 4px 24px rgba(0,0,0,.6); }
+    .article-hero h1 .hl { color:var(--blue); }
+    .article-hero p { font-size:clamp(15px,1.6vw,19px);color:rgba(255,255,255,.8);max-width:640px;line-height:1.6; }
+    .breadcrumb { background:#fff;border-bottom:1px solid var(--line);padding:11px 0;font-size:13px;color:var(--muted); }
+    .breadcrumb a { color:var(--blue); }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb-sep { margin:0 8px; }
+    .article-section { padding:60px 0 80px; }
+    .article-layout { display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start; }
+    .prose h2 { font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,3vw,32px);font-weight:900;font-style:italic;text-transform:uppercase;color:var(--text);margin:36px 0 14px;line-height:1; }
+    .prose h2:first-child { margin-top:0; }
+    .prose h3 { font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--text);margin:24px 0 10px; }
+    .prose p { color:var(--text2);font-size:16px;line-height:1.75;margin-bottom:18px; }
+    .prose ul,.prose ol { margin:0 0 20px 20px; }
+    .prose li { color:var(--text2);font-size:15.5px;line-height:1.65;margin-bottom:8px; }
+    .fact-box { background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:var(--r);padding:20px 24px;margin:28px 0; }
+    .fact-box h4 { font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px; }
+    .fact-box ul { margin:0;padding:0;list-style:none; }
+    .fact-box ul li { display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--text2);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.05);line-height:1.5; }
+    .fact-box ul li:last-child { border-bottom:0; }
+    .fact-box ul li::before { content:"✓";color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px; }
+    .sidebar { display:flex;flex-direction:column;gap:20px; }
+    .sidebar-card { background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06); }
+    .sidebar-card-header { background:linear-gradient(135deg,var(--dark),var(--dark2));padding:16px 20px;border-bottom:2px solid var(--blue); }
+    .sidebar-card-header h3 { font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;font-style:italic;text-transform:uppercase;color:#fff; }
+    .sidebar-card-body { padding:18px 20px; }
+    .sidebar-card-body p { font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:12px; }
+    .sidebar-card-body p:last-child { margin-bottom:0; }
+    .btn-sidebar { display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin-top:14px;background:var(--blue);color:#fff;border:none;border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s; }
+    .btn-sidebar:hover { background:var(--blue2); }
+    .related-list { list-style:none;padding:0;margin:0; }
+    .related-list li { border-bottom:1px solid var(--line);padding:10px 0; }
+    .related-list li:last-child { border-bottom:0; }
+    .related-list a { font-size:14px;color:var(--blue);font-weight:600;display:flex;align-items:center;gap:6px;transition:gap .15s; }
+    .related-list a:hover { gap:10px; }
+    .cta-banner { background:linear-gradient(135deg,var(--dark) 0%,#0a1628 50%,var(--dark2) 100%);border-top:3px solid var(--blue);padding:60px 0; }
+    .cta-inner { display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap; }
+    .cta-text h2 { font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:900;font-style:italic;text-transform:uppercase;color:#fff;line-height:.95;margin-bottom:8px; }
+    .cta-text h2 .hl { color:var(--blue); }
+    .cta-text p { font-size:16px;color:rgba(255,255,255,.7);max-width:480px; }
+    .cta-actions { display:flex;gap:14px;flex-wrap:wrap; }
+    .btn-primary { display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 28px;background:var(--blue);color:#fff;border:2px solid var(--blue);border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s; }
+    .btn-primary:hover { background:var(--blue2);border-color:var(--blue2); }
+    .btn-ghost { display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 28px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);border-radius:7px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:border-color .2s; }
+    .btn-ghost:hover { border-color:#fff; }
+    footer { background:#0d1117;border-top:3px solid var(--blue);padding:56px 0 24px; }
+    .footer-grid { display:grid;grid-template-columns:1.6fr 1fr 1.3fr 1.2fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1); }
+    .footer-logo { width:200px;margin-bottom:14px; }
+    .footer-desc { font-size:14px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:18px; }
+    .footer-col h4 { font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px; }
+    .footer-col ul { list-style:none; }
+    .footer-col ul li+li { margin-top:10px; }
+    .footer-col ul li a { font-size:14px;color:rgba(255,255,255,.7);transition:color .2s; }
+    .footer-col ul li a:hover { color:#fff; }
+    .footer-contact-item { display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:12px; }
+    .footer-contact-item svg { color:var(--blue);flex-shrink:0;margin-top:2px; }
+    .social-row { display:flex;gap:10px;margin-top:4px; }
+    .social-btn { width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;color:rgba(255,255,255,.65);transition:border-color .2s,color .2s; }
+    .social-btn:hover { border-color:var(--blue);color:var(--blue); }
+    .copyright { padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.35); }
+    .copyright-links { display:flex;gap:24px; }
+    .copyright-links a { color:rgba(255,255,255,.35);transition:color .2s; }
+    .copyright-links a:hover { color:rgba(255,255,255,.7); }
+    @media(max-width:900px) { .article-layout{grid-template-columns:1fr} .footer-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:600px) { .wrap{width:calc(100% - 32px)} .topbar-item:nth-child(2){display:none} .nav-menu{display:none} .cta-inner{flex-direction:column} .footer-grid{grid-template-columns:1fr;gap:28px} }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span class="topbar-item"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Family Owned. Quality Driven.</span>
+      <span class="topbar-item"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Fast Shipping Across The U.S.</span>
+      <span class="topbar-item"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.95-1.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(508) 510-6153</span>
+      <span class="topbar-item"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri 8am–6pm · Sat 8am–1pm</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap nav-inner">
+      <a href="index.html">
+        <img src="img/gervin-logo.png" alt="Gervin Tires &amp; Autocenter" class="logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-size:26px;color:#fff;letter-spacing:.05em;">GERVIN TIRE</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><li><a href="tires.html">Tires</a></li>
+          
+          <li><a href="services.html">Automotive Repair</a></li>
+          <li><a href="resources.html" class="active">Knowledge Center</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="schedule.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons">
+        <a href="#" aria-label="Facebook" style="color:#ffd700;padding:8px;border-radius:6px;display:grid;place-items:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" style="color:#ffd700;padding:8px;border-radius:6px;display:grid;place-items:center;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="article-hero">
+    <div class="article-hero-bg" style="background-image:url('https://s7d1.scene7.com/is/image/GoodyearSitesProd/tire-feathering-1?fmt=jpeg&qlt=85&wid=1920&profile=crop-16x9')"></div>
+    <div class="article-hero-overlay"></div>
+    <div class="wrap article-hero-content">
+      <span class="cat-label">Tire Care &amp; Maintenance</span>
+      <h1>Tire Feathering:<br><span class="hl">Causes</span> &amp; Solutions</h1>
+      <p>Feathering is a specific wear pattern where tread ribs become rounded on one side and sharp on the other — almost always a sign of an alignment or suspension problem. Catching it early saves both tires and repair costs.</p>
+    </div>
+  </section>
+
+  <div class="breadcrumb">
+    <div class="wrap">
+      <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="resources.html">Knowledge Center</a><span class="breadcrumb-sep">›</span>
+      <span>Tire Feathering: Causes &amp; Solutions</span>
+    </div>
+  </div>
+
+  <section class="article-section">
+    <div class="wrap">
+      <div class="article-layout">
+        <div class="prose">
+
+          <h2>What Is Tire Feathering?</h2>
+          <p>Tire feathering is a distinctive wear pattern most easily identified by running your hand across the tread. Rather than even, flat wear across the tops of each rib, you'll feel a wedge effect — one side of each rib is smooth and rounded while the opposite side is sharp or jagged. This asymmetric wear happens when the tire is rolling in a direction that's slightly different from the direction it's actually pointed, causing each tread block to scrub laterally with every revolution. The name comes from the resulting texture, which resembles the angled edge of a feather.</p>
+
+          <h2>What Causes It?</h2>
+          <p>Feathering is almost exclusively caused by toe misalignment — a condition where one or more wheels point slightly inward (toe-in) or outward (toe-out) relative to the direction of travel. Even a fraction of a degree of toe error causes continuous lateral scrubbing that produces feathering over time. Worn tie rod ends, loose suspension bushings, or a bent steering component can all lead to toe misalignment. Unlike center-tread wear or edge wear, feathering is not related to inflation pressure — it persists regardless of how well-maintained your tire pressure is. If you also notice a rhythmic humming or roaring noise that changes with speed, that's another symptom of feathering and is sometimes misidentified as a failing wheel bearing.</p>
+
+          <h2>How to Fix Feathered Tires</h2>
+          <p>The underlying fix for tire feathering is a professional wheel alignment. A technician will measure the toe angle on each wheel and adjust the tie rod lengths to bring them back within the manufacturer's specification. If a suspension component is worn or damaged, that will need to be replaced first — alignment adjustments won't hold if the geometry is shifting due to worn parts. As for the tires themselves, mild feathering may even out somewhat after the alignment is corrected if the tires are also rotated, but severely feathered tires typically need to be replaced because the structural integrity of the tread has been compromised. To prevent feathering from recurring, have an alignment check done annually and immediately after any significant road impact such as a serious pothole hit or curb strike.</p>
+
+          <div class="fact-box">
+            <h4>Key Takeaways</h4>
+            <ul>
+              <li>Caused by toe misalignment — the tire pointing slightly inward or outward while rolling</li>
+              <li>Unlike center or edge wear, feathering is an alignment/suspension issue, not an inflation issue</li>
+              <li>Feathering can produce a humming or roaring noise that's mistaken for a wheel bearing</li>
+              <li>A professional wheel alignment is the fix — severely feathered tires typically need replacing</li>
+              <li>Annual alignment checks or after hitting a major road hazard prevent feathering from developing</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-card-header"><h3>Schedule Service</h3></div>
+            <div class="sidebar-card-body">
+              <p>Feathering wear means your alignment needs attention. Book your alignment check and tire inspection today.</p>
+              <a href="schedule.html" class="btn-sidebar">Book an Appointment</a>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-header"><h3>Related Articles</h3></div>
+            <div class="sidebar-card-body">
+              <ul class="related-list">
+                <li><a href="resource_wheel-alignment-benefits.html">› Benefits of Wheel Alignment</a></li>
+                <li><a href="resource_pothole-tire-damage.html">› Pothole Damage to Your Tires</a></li>
+                <li><a href="resource_extend-tire-life.html">› Tips to Maximize Tire Life</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-header"><h3>Questions?</h3></div>
+            <div class="sidebar-card-body">
+              <p>Our team is happy to help with any tire or service questions you have.</p>
+              <a href="tel:5085106153" class="btn-sidebar">Call (508) 510-6153</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Ready to Schedule <span class="hl">Your Service?</span></h2>
+          <p>Gervin Tires &amp; Autocenter is here to keep your vehicle running safely — call us or book online today.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:5085106153" class="btn-primary">(508) 510-6153</a>
+          <a href="schedule.html" class="btn-ghost">Book Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <img src="img/gervin-logo.png" class="footer-logo" alt="Gervin Tires &amp; Autocenter" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span style="display:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-size:24px;color:#fff;letter-spacing:.05em;">GERVIN TIRE</span>
+          <p class="footer-desc">Family owned. Quality driven. Thank you for trusting us with your ride.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li><li><a href="tires.html">Tires</a></li>
+            
+            <li><a href="services.html">Automotive Repair</a></li>
+            <li><a href="resources.html">Knowledge Center</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="schedule.html">Schedule Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.95-1.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:5085106153" style="color:inherit">(508) 510-6153</a></div>
+          <div class="footer-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@gervintire.com" style="color:inherit">info@gervintire.com</a></div>
+          <div class="footer-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri: 8am–6pm EST<br>Sat: 8am–1pm EST</div>
+        </div>
+        <div class="footer-col">
+          <h4>Our Location</h4>
+          <div class="footer-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>1181 Main Street<br>Brockton, MA 02301</div>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Gervin Tire. All rights reserved.</span>
+        <div class="copyright-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
