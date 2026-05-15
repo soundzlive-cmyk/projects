@@ -186,13 +186,13 @@
       align-items: center;
     }
 
-    /* Highway photo background */
+    /* Racetrack background */
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80&auto=format&fit=crop');
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80&auto=format&fit=crop');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 55%;
       background-repeat: no-repeat;
     }
 
@@ -320,21 +320,85 @@
       border-color: transparent;
     }
 
-    /* Off-road tire in hero */
+    /* Tire carousel in hero */
     .hero-tire-wrap {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 16px;
+      position: relative;
     }
 
-    .hero-tire {
-      width: min(580px, 48vw);
+    .tire-carousel {
+      width: min(560px, 46vw);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .tire-carousel-track {
+      display: flex;
+      transition: transform .7s cubic-bezier(.4,0,.2,1);
+    }
+
+    .tire-slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tire-slide img {
+      width: 100%;
       height: auto;
       filter:
         drop-shadow(0 30px 60px rgba(0,0,0,.85))
         drop-shadow(0 0 80px rgba(0,0,0,.6))
         drop-shadow(-16px 0 40px rgba(0,0,0,.5));
       animation: float 6s ease-in-out infinite;
+    }
+
+    .tire-slide-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      text-align: center;
+    }
+
+    .tire-slide-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(15px, 1.6vw, 19px);
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .tire-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tire-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .2s, transform .2s;
+    }
+
+    .tire-dot.active {
+      background: var(--blue);
+      transform: scale(1.3);
     }
 
     @keyframes float {
@@ -907,15 +971,37 @@
           </div>
         </div>
 
-        <!-- Goodyear Wrangler Boulder MT product image -->
+        <!-- Tire carousel -->
         <div class="hero-tire-wrap" aria-hidden="true">
-          <img
-            class="hero-tire"
-            src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Wrangler_Boulder_MT_25323?fmt=png-alpha&qlt=90&wid=1000"
-            alt="Goodyear Wrangler Boulder MT off-road tire"
-            width="1000"
-            height="1000"
-          />
+          <div class="tire-carousel" id="tire-carousel">
+            <div class="tire-carousel-track" id="tire-track">
+
+              <div class="tire-slide">
+                <img
+                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Eagle_F1_SuperCar_3R_13931?fmt=png-alpha&qlt=90&wid=900"
+                  alt="Goodyear Eagle F1 SuperCar 3R"
+                  width="900" height="900"
+                />
+                <div class="tire-slide-label">Goodyear Performance</div>
+                <div class="tire-slide-name">Eagle F1 SuperCar 3R</div>
+              </div>
+
+              <div class="tire-slide">
+                <img
+                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Eagle_F1_Asymmetric_3_13495?fmt=png-alpha&qlt=90&wid=900"
+                  alt="Goodyear Eagle F1 Asymmetric 3"
+                  width="900" height="900"
+                />
+                <div class="tire-slide-label">Goodyear Performance</div>
+                <div class="tire-slide-name">Eagle F1 Asymmetric 3</div>
+              </div>
+
+            </div>
+          </div>
+          <div class="tire-dots">
+            <button class="tire-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="tire-dot" data-index="1" aria-label="Slide 2"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -1264,6 +1350,37 @@
       "https://www.instagram.com/gervintires"
     ]
   }
+  </script>
+
+  <script>
+    (function () {
+      const track  = document.getElementById('tire-track');
+      const dots   = document.querySelectorAll('.tire-dot');
+      const total  = 2;
+      let current  = 0;
+      let timer;
+
+      function goTo(idx) {
+        current = idx;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function next() { goTo((current + 1) % total); }
+
+      function startAuto() { timer = setInterval(next, 3500); }
+      function stopAuto()  { clearInterval(timer); }
+
+      dots.forEach(d => {
+        d.addEventListener('click', () => {
+          stopAuto();
+          goTo(+d.dataset.index);
+          startAuto();
+        });
+      });
+
+      startAuto();
+    })();
   </script>
 
 </body>
