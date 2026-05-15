@@ -186,13 +186,13 @@
       align-items: center;
     }
 
-    /* Car show background */
+    /* Road background */
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.pexels.com/photos/8879012/pexels-photo-8879012.jpeg?auto=compress&cs=tinysrgb&w=1920');
+      background-image: url('img/road.jfif');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 50%;
       background-repeat: no-repeat;
     }
 
@@ -985,18 +985,38 @@
                   alt="Goodyear Eagle F1 SuperCar 3R"
                   width="900" height="900"
                 />
-                <div class="tire-slide-label">Goodyear Performance</div>
-                <div class="tire-slide-name">Eagle F1 SuperCar 3R</div>
+                <div class="tire-slide-label">Super Performance</div>
+                <div class="tire-slide-name">Eagle® F1 SuperCar® 3R</div>
               </div>
 
               <div class="tire-slide">
                 <img
-                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Eagle_F1_Asymmetric_3_13495?fmt=png-alpha&bgc=ffffff00&qlt=90&wid=900"
-                  alt="Goodyear Eagle F1 Asymmetric 3"
+                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Discoverer_Enduramax_24487?fmt=png-alpha&bgc=ffffff00&qlt=90&wid=900"
+                  alt="Goodyear Discoverer EnduraMax"
                   width="900" height="900"
                 />
-                <div class="tire-slide-label">Goodyear Performance</div>
-                <div class="tire-slide-name">Eagle F1 Asymmetric 3</div>
+                <div class="tire-slide-label">All Terrain</div>
+                <div class="tire-slide-name">Discoverer® EnduraMax®</div>
+              </div>
+
+              <div class="tire-slide">
+                <img
+                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Endeavor_24498?fmt=png-alpha&bgc=ffffff00&qlt=90&wid=900"
+                  alt="Goodyear Endeavor"
+                  width="900" height="900"
+                />
+                <div class="tire-slide-label">All Season</div>
+                <div class="tire-slide-name">Endeavor®</div>
+              </div>
+
+              <div class="tire-slide">
+                <img
+                  src="https://s7d1.scene7.com/is/image/GoodyearSitesProd/Wrangler_Duratrac_RT_24913?fmt=png-alpha&bgc=ffffff00&qlt=90&wid=900"
+                  alt="Goodyear Wrangler DuraTrac RT"
+                  width="900" height="900"
+                />
+                <div class="tire-slide-label">Off Road</div>
+                <div class="tire-slide-name">Wrangler DuraTrac® RT</div>
               </div>
 
             </div>
@@ -1004,6 +1024,8 @@
           <div class="tire-dots">
             <button class="tire-dot active" data-index="0" aria-label="Slide 1"></button>
             <button class="tire-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="tire-dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="tire-dot" data-index="3" aria-label="Slide 4"></button>
           </div>
         </div>
       </div>
@@ -1359,7 +1381,7 @@
     (function () {
       const track  = document.getElementById('tire-track');
       const dots   = document.querySelectorAll('.tire-dot');
-      const total  = 2;
+      const total  = 4;
       let current  = 0;
       let timer;
 
